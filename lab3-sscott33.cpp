@@ -30,7 +30,7 @@ int main() {
     } while (yesno == 'y' || yesno == 'Y');
 
 //////////////////////////////////////////////////////////
-    // the above code experiences an overflow error when 256 is given as an input
+    // the above code experiences an overflow error when 256 is given as an input when numeric input is stored in shorts
 
     return 0;
 }
