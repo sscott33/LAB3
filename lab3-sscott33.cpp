@@ -4,11 +4,15 @@
 
 using namespace std;
 
+
+// float factorial(long n);
+
+
 int main() {
     // compute sums
 
     // shorts for the input and output
-    short n, sum;
+    long n, sum;
 
     // loop for multiple summations
     char yesno = 'n';
@@ -18,7 +22,7 @@ int main() {
         cout << "Enter a positive number \"n\" to recieve the sum from 1 to n: ";
         cin >> n;
 
-        for (short i = 1; i <= n; i++) {
+        for (long i = 1; i <= n; i++) {
             sum += i;
         }
 
@@ -30,7 +34,18 @@ int main() {
     } while (yesno == 'y' || yesno == 'Y');
 
 //////////////////////////////////////////////////////////
-    // the above code experiences an overflow error when 256 is given as an input when numeric input is stored in shorts
+    // (Parts 1 & 2) the above code experiences an overflow error when 256 is given as an input when numbers are stored in shorts
+    // (Part 3) the above code experiences an overflow error when 65537 is given as an input when the numbers are stored in longs
 
     return 0;
 }
+
+
+// float factorial(long n) {
+//     float product = 1;
+//     for (long i = 1; i <= n; i++) {
+//         product *= i;
+//     }
+//
+//     return product;
+// }
