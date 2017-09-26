@@ -6,7 +6,7 @@
 using namespace std;
 
 
-float factorial(long n);
+double factorial(long n);
 
 
 int main() {
@@ -38,8 +38,9 @@ int main() {
     // (Parts 1 & 2) the above code experiences an overflow error when 256 is given as an input when numbers are stored in shorts
     // (Part 3) the above code experiences an overflow error when 65537 is given as an input when the numbers are stored in longs
 //////////////////////////////////////////////////////////
-    // the following code recieves an overflow error when 35! is computed
-    // the error is noticible because "inf" is returned instead of a float
+    // (Part 4) the following code recieves an overflow error when 35! is computed if floats are used
+    // (Part 4) the error is noticible because "inf" is returned instead of a number
+    // (Part 5) the overflow occurs at 171 and is noticeible because "inf" is returned instead of a number
 
     long n;//, product;
     char yesno = 'n';
@@ -60,8 +61,8 @@ int main() {
 }
 
 
-float factorial(long n) {
-    float product = 1;
+double factorial(long n) {
+    double product = 1;
     for (long i = 1; i <= n; i++) {
         product *= i;
     }
