@@ -6,7 +6,9 @@
 using namespace std;
 
 
-double factorial(long n);
+// double factorial(long n);
+float inverseSeriesFloat(long n);
+double inverseSeriesDouble(long n);
 
 
 int main() {
@@ -41,18 +43,24 @@ int main() {
     // (Part 4) the following code recieves an overflow error when 35! is computed if floats are used
     // (Part 4) the error is noticible because "inf" is returned instead of a number
     // (Part 5) the overflow occurs at 171 and is noticeible because "inf" is returned instead of a number
+    // (Part 6) both doubles and floats have varying levels of accuracy
+    // (Part 6) doubles tend to be more accurate than floats when dealing with larger computations
+
+
+    cout.precision(8);
 
     long n;//, product;
     char yesno = 'n';
     do {
 
         // product = 1;
-        cout << "Enter a positive number \"n\" to recieve the factorial of n: ";
+        cout << "Enter a positive number \"n\" to recieve a sum: ";
         cin >> n;
 
-        cout << "The product is " << factorial(n) << endl;
+        cout << "The sum using floats is  " << inverseSeriesFloat(n) << endl;
+        cout << "The sum using doubles is " << inverseSeriesDouble(n) << endl;
 
-        cout << endl << "Would you like to compute another factorial? (y/n) ";
+        cout << endl << "Would you like to compute another sum? (y/n) ";
         cin >> yesno;
         cout << endl;
     } while (yesno == 'y' || yesno == 'Y');
@@ -61,11 +69,31 @@ int main() {
 }
 
 
-double factorial(long n) {
-    double product = 1;
-    for (long i = 1; i <= n; i++) {
-        product *= i;
-    }
+// double factorial(long n) {
+//     double product = 1;
+//     for (long i = 1; i <= n; i++) {
+//         product *= i;
+//     }
+//
+//     return product;
+// }
 
-    return product;
+
+float inverseSeriesFloat(long n) {
+    if (n >= 2) {
+        return (float) 1 / (n) + inverseSeriesFloat(n - 1);
+    }
+    else {
+        return (float) 1 / n;
+    }
+}
+
+
+double inverseSeriesDouble(long n) {
+    if (n >= 2) {
+        return (double) 1 / (n) + inverseSeriesDouble(n - 1);
+    }
+    else {
+        return (double) 1 / n;
+    }
 }
